@@ -2,7 +2,10 @@
 This repository is used for anonymizing IP addresses in web server logs. The process assumes the following log format to work:
 LogFormat "%h %l %u %t \"%r\" %>s %O
 
-You need Apache Spark and pyspark installed for this repository to work. You can install the pip libraries by using requirements.txt. In order to install Apache Spark you can use the following guide:
+You need Apache Spark and pyspark installed for this repository to work. You can install the pip libraries by using requirements.txt as follows:
+* pip install -r requirements.txt
+
+In order to install Apache Spark you can use the following guide:
 
 * for Macos : https://medium.com/macoclock/how-to-install-apache-pyspark-on-macbook-pro-4a9249f0d823
 
