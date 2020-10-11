@@ -2,7 +2,10 @@
 This repository is used for anonymizing IP addresses in web server logs. The process assumes the following log format to work:
 LogFormat "%h %l %u %t \"%r\" %>s %O
 
-You need Apache Spark and pyspark installed for this repository to work. You can install the pip libraries by using requirements.txt. In order to install Apache Spark you can use the following guide:
+You need Apache Spark and pyspark installed for this repository to work. You can install the pip libraries by using requirements.txt as follows:
+* pip install -r requirements.txt
+
+In order to install Apache Spark you can use the following guide:
 
 * for Macos : https://medium.com/macoclock/how-to-install-apache-pyspark-on-macbook-pro-4a9249f0d823
 
@@ -11,7 +14,8 @@ You need Apache Spark and pyspark installed for this repository to work. You can
 The parser looks logs under access_logs directory and expects the logs in .gz format. I used this format as input format because usually you find large log files compressed in .gz files. As an input I have also added Access Logs provided by NASA for July and August. 
 
 Parser first finds valid IP addresses in host column, and then looks up the country for the given IP address. System is tested against both IPv4 and IPv6. You can run those tests by using the following command:
-python -m pytest tests/
+
+* python -m pytest tests/
 
 When anonymizing IP addresses my approach was splitting the IP address by delimeter(. for IPv4 and : for IPv6) and replacing last part with country information. An example of IP anonymization is below:
 130.119.171.217 -> 130.119.171.US
