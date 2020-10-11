@@ -25,6 +25,11 @@ I am using maxminddb and GeoLite-Country.mmdb database for country lookup. When 
 
 After anaoymization process log files are written back to outputs directory. 
 
+In order to use the anonymizer put access logs(in .gz format) into access_logs folder and run the tool.You can run the tool using the following command:
+* python -m src.main
+
+For reference I have added some large log files under access_logs. Feel free to delete and replace them as long as you put .gz files there. You should see the output files in parquet format under outputs/ directory
+
 Some key points to consider:
 
 * Log files are usually large files for web servers with some traffic. Hence doing this parsing in memory is not an option since you can easily have log files larger than your memory. Thats why I used Spark for that purpose. Rather than doing the process in memory, spark runs the operations on disk and fetching data to memory in chunks when needed. That eliminates memory problems when dealing with large log files. Also when building a data pipeline Spark becomes very usefull with its ecosystem. You can submit those Spark jobs on your local machine, on a Spark Cluster running on cloud or managed services that runs Spark jobs like Glue on AWS.
