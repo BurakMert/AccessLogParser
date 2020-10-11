@@ -18,9 +18,11 @@ Parser first finds valid IP addresses in host column, and then looks up the coun
 * python -m pytest tests/
 
 When anonymizing IP addresses my approach was splitting the IP address by delimeter(. for IPv4 and : for IPv6) and replacing last part with country information. An example of IP anonymization is below:
+
 130.119.171.217 -> 130.119.171.US
 
 I am using maxminddb and GeoLite-Country.mmdb database for country lookup. When there is no match for a given IP, NaN is returned from country enrichment transformation. Also when the host is not an IP address but a domain name I assumed that no further anaoymization is needed. When we encounter an ip address without a country match anonymization process adds NaN instead of last part for the IP address. You can find an example below:
+
 127.0.0.1 -> 127.0.0.NaN
 
 After anaoymization process log files are written back to outputs directory. 
