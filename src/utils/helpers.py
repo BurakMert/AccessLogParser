@@ -7,7 +7,7 @@ from pyspark.sql.functions import udf, col
 from datetime import datetime
 from dateutil.parser import parse
 
-db = maxminddb.open_database('src/utils/GeoLite2-Country.mmdb', maxminddb.reader.MODE_MEMORY)
+db = maxminddb.open_database('src/resources/GeoLite2-Country.mmdb', maxminddb.reader.MODE_MEMORY)
 
 def _find_country_from_ip(ip):
     try:
