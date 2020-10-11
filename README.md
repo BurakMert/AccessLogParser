@@ -14,7 +14,8 @@ In order to install Apache Spark you can use the following guide:
 The parser looks logs under access_logs directory and expects the logs in .gz format. I used this format as input format because usually you find large log files compressed in .gz files. As an input I have also added Access Logs provided by NASA for July and August. 
 
 Parser first finds valid IP addresses in host column, and then looks up the country for the given IP address. System is tested against both IPv4 and IPv6. You can run those tests by using the following command:
-python -m pytest tests/
+
+* python -m pytest tests/
 
 When anonymizing IP addresses my approach was splitting the IP address by delimeter(. for IPv4 and : for IPv6) and replacing last part with country information. An example of IP anonymization is below:
 130.119.171.217 -> 130.119.171.US
